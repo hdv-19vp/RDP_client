@@ -1,4 +1,4 @@
-package group02.rdpclient;
+package group02.rdpclient.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
