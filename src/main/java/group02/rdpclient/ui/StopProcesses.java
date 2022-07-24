@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package group02.ui;
+package group02.rdpclient.ui;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -16,20 +16,20 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class StartApplication extends javax.swing.JFrame {
+public class StopProcesses extends javax.swing.JFrame {
 
     /**
      * Creates new form Start
      */
-    public StartApplication() {
+    public StopProcesses() {
         initComponents();
         
         jButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Application fram1 = new Application();
+                Processes fram1 = new Processes();
                 fram1.setVisible(true);
-                StartApplication.this.dispose();
+                StopProcesses.this.dispose();
             }
         });
         
@@ -48,7 +48,7 @@ public class StartApplication extends javax.swing.JFrame {
             public void focusLost(FocusEvent e) {
                 if (jTextField1.getText().isEmpty()) {
                     jTextField1.setForeground(Color.GRAY);
-                    jTextField1.setText("Enter name");
+                    jTextField1.setText("Enter ID");
                 }
             }
         });
@@ -57,25 +57,25 @@ public class StartApplication extends javax.swing.JFrame {
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (jTextField1.getText().equals("Enter name")) {
+                if (jTextField1.getText().equals("Enter ID")) {
                     jLabel1.setForeground(Color.RED);
                 }
-                if (!jTextField1.getText().equals("Enter name")) {
+                if (!jTextField1.getText().equals("Enter ID")) {
                     jLabel1.setForeground(Color.WHITE);
                 }
-                if(!jTextField1.getText().equals("Enter name")) {
+                if(!jTextField1.getText().equals("Enter ID")) {
                     boolean result = true;
                     if (result == true) {
-                        JOptionPane optionPane = new JOptionPane("Start application successful",JOptionPane.WARNING_MESSAGE);
-                        JDialog dialog = optionPane.createDialog("Start");
+                        JOptionPane optionPane = new JOptionPane("Stop processes successful",JOptionPane.WARNING_MESSAGE);
+                        JDialog dialog = optionPane.createDialog("Stop");
                         dialog.setAlwaysOnTop(true);
                         dialog.setVisible(true);
-                        Application fram1 = new Application();
+                        Processes fram1 = new Processes();
                         fram1.setVisible(true);
-                        StartApplication.this.dispose();
+                        StopProcesses.this.dispose();
                     } else {
-                        JOptionPane optionPane = new JOptionPane("Start application failed",JOptionPane.WARNING_MESSAGE);
-                        JDialog dialog = optionPane.createDialog("Start status");
+                        JOptionPane optionPane = new JOptionPane("Stop processes failed",JOptionPane.WARNING_MESSAGE);
+                        JDialog dialog = optionPane.createDialog("Stop status");
                         dialog.setAlwaysOnTop(true);
                         dialog.setVisible(true);
                     }
@@ -104,13 +104,13 @@ public class StartApplication extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setText("Enter name");
+        jTextField1.setText("Enter ID");
 
-        jButton1.setText("Start");
+        jButton1.setText("Stop");
 
         jButton2.setText("Back");
 
-        jLabel1.setText("Please enter name");
+        jLabel1.setText("Please enter ID ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,8 +122,8 @@ public class StartApplication extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addComponent(jButton1)
                 .addGap(34, 34, 34))
@@ -172,21 +172,27 @@ public class StartApplication extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StartApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StartApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StartApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StartApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StartApplication().setVisible(true);
+                new StopProcesses().setVisible(true);
             }
         });
     }

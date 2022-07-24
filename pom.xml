@@ -77,7 +77,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>group02.rdpclient.Main</mainClass>
+                                    <mainClass>group02.rdpclient.controller.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

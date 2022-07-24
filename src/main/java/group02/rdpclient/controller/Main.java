@@ -1,4 +1,4 @@
-package group02.rdpclient;
+package group02.rdpclient.controller;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package group02.ui;
+package group02.rdpclient.ui;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -6,17 +6,10 @@ package group02.ui;
  */
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.font.TextAttribute;
-import java.util.EventListener;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 /**

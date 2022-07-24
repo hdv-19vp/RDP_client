@@ -1,4 +1,4 @@
-package group02.rdpclient;
+package group02.rdpclient.controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
