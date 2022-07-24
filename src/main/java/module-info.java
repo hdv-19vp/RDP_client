@@ -5,6 +5,6 @@ module group02.rdpclient {
     requires java.logging;
 
 
-    opens group02.rdpclient to javafx.fxml;
-    exports group02.rdpclient;
+    opens group02.rdpclient.controller to javafx.fxml;
+    exports group02.rdpclient.controller;
 }

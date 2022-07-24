@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package group02.ui;
+package group02.rdpclient.ui;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -16,20 +16,20 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class StopProcesses extends javax.swing.JFrame {
+public class StopApplication extends javax.swing.JFrame {
 
     /**
      * Creates new form Start
      */
-    public StopProcesses() {
+    public StopApplication() {
         initComponents();
         
         jButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Processes fram1 = new Processes();
+                Application fram1 = new Application();
                 fram1.setVisible(true);
-                StopProcesses.this.dispose();
+                StopApplication.this.dispose();
             }
         });
         
@@ -66,15 +66,15 @@ public class StopProcesses extends javax.swing.JFrame {
                 if(!jTextField1.getText().equals("Enter ID")) {
                     boolean result = true;
                     if (result == true) {
-                        JOptionPane optionPane = new JOptionPane("Stop processes successful",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane optionPane = new JOptionPane("Stop application successful",JOptionPane.WARNING_MESSAGE);
                         JDialog dialog = optionPane.createDialog("Stop");
                         dialog.setAlwaysOnTop(true);
                         dialog.setVisible(true);
-                        Processes fram1 = new Processes();
+                        Application fram1 = new Application();
                         fram1.setVisible(true);
-                        StopProcesses.this.dispose();
+                        StopApplication.this.dispose();
                     } else {
-                        JOptionPane optionPane = new JOptionPane("Stop processes failed",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane optionPane = new JOptionPane("Stop application failed",JOptionPane.WARNING_MESSAGE);
                         JDialog dialog = optionPane.createDialog("Stop status");
                         dialog.setAlwaysOnTop(true);
                         dialog.setVisible(true);
@@ -172,18 +172,14 @@ public class StopProcesses extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StopProcesses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StopApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -192,7 +188,7 @@ public class StopProcesses extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StopProcesses().setVisible(true);
+                new StopApplication().setVisible(true);
             }
         });
     }
