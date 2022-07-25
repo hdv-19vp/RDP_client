@@ -4,8 +4,11 @@
  */
 package group02.rdpclient.ui;
 
+import group02.rdpclient.socket.Client;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,7 +21,45 @@ public class Keystroke extends javax.swing.JFrame {
      */
     public Keystroke() {
         initComponents();
-        
+
+
+
+        jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Client.getKeyStrokeOn();
+            }
+        });
+
+        jButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Client.getKeyStrokeOff();
+            }
+        });
+
+
+        jButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<Character> list = new ArrayList<>();
+                Client.print(list);
+                for (int i = 0; i < list.size(); i++){
+                    jTextArea1.append(list.get(i).toString());
+                }
+            }
+        });
+
+
+        jButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jTextArea1.setText("");
+            }
+        });
+
+
+
         jButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

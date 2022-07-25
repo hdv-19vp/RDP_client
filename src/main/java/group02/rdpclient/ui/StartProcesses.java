@@ -4,6 +4,8 @@
  */
 package group02.rdpclient.ui;
 
+import group02.rdpclient.socket.Client;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -64,7 +66,7 @@ public class StartProcesses extends javax.swing.JFrame {
                     jLabel1.setForeground(Color.WHITE);
                 }
                 if(!jTextField1.getText().equals("Enter name")) {
-                    boolean result = true;
+                    boolean result = Client.startProcess(jTextField1.getText());
                     if (result == true) {
                         JOptionPane optionPane = new JOptionPane("Start processes successful",JOptionPane.WARNING_MESSAGE);
                         JDialog dialog = optionPane.createDialog("Start");

@@ -4,8 +4,16 @@
  */
 package group02.rdpclient.ui;
 
+import group02.rdpclient.socket.Client;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -16,13 +24,40 @@ public class Screenshot extends javax.swing.JFrame {
     /**
      * Creates new form Screenshot
      */
+    public static BufferedImage img = null;
     public Screenshot() {
         initComponents();
-        
+
+
+
+        jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Client.takePic();
+
+                try {
+                    File file = new File("D:\\pics\\temporarysssss_pic.jpg");
+                    img = ImageIO.read(file);
+                    file.delete();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                Image img_resize = img.getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(),
+                        Image.SCALE_SMOOTH);
+                ImageIcon imageIcon = new ImageIcon(img_resize);
+                jLabel2.setIcon(imageIcon);
+            }
+        });
+
+
         jButton2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                try {
+                    ImageIO.write(img, "jpg", new File("D:\\pics\\ss1.jpg"));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         

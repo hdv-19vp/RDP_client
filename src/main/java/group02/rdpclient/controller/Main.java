@@ -4,13 +4,7 @@ import group02.rdpclient.socket.Client;
 
 public class Main {
     public static void main(String[] args) {
-        Client.connect();
-        Client.getKeyStrokeOn();
-        try {
-            Thread.sleep(10000);
-            Client.getKeyStrokeOff();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Client.connect("127.0.0.1");
+        Client.startProcess("notepad");
     }
 }
