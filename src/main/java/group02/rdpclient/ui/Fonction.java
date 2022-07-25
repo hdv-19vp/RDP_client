@@ -4,6 +4,8 @@
  */
 package group02.rdpclient.ui;
 
+import group02.rdpclient.socket.Client;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -54,7 +56,7 @@ public class Fonction extends javax.swing.JFrame {
         jButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                Client.shutDown();
             }
         });
         jButton6.addActionListener(new ActionListener() {

@@ -4,8 +4,12 @@
  */
 package group02.rdpclient.ui;
 
+import group02.rdpclient.socket.Client;
+
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  *
@@ -45,6 +49,35 @@ public class Processes extends javax.swing.JFrame {
                 Processes.this.dispose();
             }
         });
+
+        jButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                tblModel.setRowCount(0);
+                ArrayList<String> processList = new ArrayList<>();
+                Client.getProcess(processList);
+                for (int i = 3; i < processList.size(); i++){
+                    String datas[] = processList.get(i).split("\s+");
+                    String status = "Running";
+                    Object[] data = {datas[0],datas[1],status};
+
+                    tblModel.addRow(data);
+                }
+            }
+        });
+
+
+        jButton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+                tblModel.setRowCount(0);
+            }
+        });
+
+
+
     }
 
     /**

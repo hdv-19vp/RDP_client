@@ -7,15 +7,16 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Client {
-    public final static String SERVER_IP = "127.0.0.1";
+    //public final static String SERVER_IP = "127.0.0.1";
     public final static int SERVER_PORT = 7;
     public static Socket socket = null;
     public static DataInputStream dis = null;
     public static DataOutputStream dos = null;
 
-    public static boolean connect() {
+    public static boolean connect(String SERVER_IP) {
         try {
             socket = new Socket(SERVER_IP, SERVER_PORT); // Connect to server
             dis = new DataInputStream(socket.getInputStream());
@@ -31,12 +32,13 @@ public class Client {
     }
 
 
-    public static boolean getProcess(){
+    public static boolean getProcess(ArrayList<String> processList){
         try {
             dos.writeUTF("getProcess");
 
             while(!dis.readUTF().equals("end") ){
-                System.out.println(dis.readUTF());
+                processList.add(dis.readUTF());
+                //System.out.println(dis.readUTF());
             }
             String res = dis.readUTF();
 
@@ -47,12 +49,13 @@ public class Client {
         }
     }
 
-    public static boolean getApp(){
+    public static boolean getApp(ArrayList<String> appList){
         try {
             dos.writeUTF("getApp");
 
             while(!dis.readUTF().equals("end") ){
-                System.out.println(dis.readUTF());
+                //System.out.println(dis.readUTF());
+                appList.add(dis.readUTF());
             }
             String res = dis.readUTF();
 
@@ -79,9 +82,9 @@ public class Client {
         }
     }
 
-    public static boolean startProccess(String processName){
+    public static boolean startProcess(String processName){
         try {
-            dos.writeUTF("startProccess");
+            dos.writeUTF("startProcess");
 
             dos.writeUTF(processName);
 
@@ -147,7 +150,7 @@ public class Client {
                 bytes =new byte[length];
                 dis.readFully(bytes,0,bytes.length);
             }
-            FileUtils.writeByteArrayToFile(new File("D:\\pics\\ss.jpg"),bytes);
+            FileUtils.writeByteArrayToFile(new File("D:\\pics\\temporarysssss_pic.jpg"),bytes);
 
         }
         catch (IOException e)
@@ -167,15 +170,24 @@ public class Client {
     public static void getKeyStrokeOff(){
         try {
             dos.writeUTF("getKeyStrokeOff");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void print(ArrayList<Character> list){
+        try {
+            dos.writeUTF("print");
             int length = dis.readInt();
             for (int i = 0; i < length; i++) {
-                char c = (char) dis.readInt();
-                System.out.println(c);
+                list.add((char) dis.readInt());
+                //System.out.println(c);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
 }

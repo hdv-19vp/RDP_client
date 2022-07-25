@@ -5,23 +5,35 @@ package group02.rdpclient.ui;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import group02.rdpclient.socket.Client;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.IOException;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 /**
  *
  * @author Admin
  */
-public class Connect extends javax.swing.JFrame {
+public class
+Connect extends javax.swing.JFrame {
+
 
     /**
      * Creates new form Login
      */
     public Connect() {
+        if (Client.socket != null) {
+            try {
+                Client.socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         initComponents();
         jButton_Login.requestFocus();
         
@@ -66,7 +78,8 @@ public class Connect extends javax.swing.JFrame {
         
         Validuser.setForeground(Color.white);
         Validpass.setForeground(Color.white);
-        
+
+
         jButton_Login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -83,7 +96,7 @@ public class Connect extends javax.swing.JFrame {
                     Validpass.setForeground(Color.WHITE);
                 }
                 if(!jTextField1.getText().equals("IPadress") && !jTextField2.getText().equals("Port")) {
-                    boolean result = true;
+                    boolean result = Client.connect(jTextField1.getText());
                     if (result == true) {
                         JOptionPane optionPane = new JOptionPane("Connect successful",JOptionPane.WARNING_MESSAGE);
                         JDialog dialog = optionPane.createDialog("Connect status");
@@ -99,7 +112,6 @@ public class Connect extends javax.swing.JFrame {
                         dialog.setVisible(true);
                     }
                 }
-                
             }
         });
     }
