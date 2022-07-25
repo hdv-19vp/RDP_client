@@ -3,6 +3,7 @@ module group02.rdpclient {
     requires javafx.fxml;
     requires java.desktop;
     requires java.logging;
+    requires org.apache.commons.io;
 
 
     opens group02.rdpclient.controller to javafx.fxml;
