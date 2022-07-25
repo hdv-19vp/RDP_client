@@ -156,12 +156,26 @@ public class Client {
         }
     }
 
+    public static void getKeyStrokeOn(){
+        try {
+            dos.writeUTF("getKeyStrokeOn");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-
-
-
-
-
+    public static void getKeyStrokeOff(){
+        try {
+            dos.writeUTF("getKeyStrokeOff");
+            int length = dis.readInt();
+            for (int i = 0; i < length; i++) {
+                char c = (char) dis.readInt();
+                System.out.println(c);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
