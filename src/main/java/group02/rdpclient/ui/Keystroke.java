@@ -68,6 +68,9 @@ public class Keystroke extends javax.swing.JFrame {
                 Keystroke.this.dispose();
             }
         });
+
+        jTextField1.setText(Client.getServerIp());
+        jTextField1.setEditable(false);
     }
 
     /**

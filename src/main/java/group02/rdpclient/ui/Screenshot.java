@@ -8,6 +8,7 @@ import group02.rdpclient.socket.Client;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -54,7 +55,30 @@ public class Screenshot extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ImageIO.write(img, "jpg", new File("D:\\pics\\ss1.jpg"));
+
+                    JFileChooser fileChooser = new JFileChooser();
+                    fileChooser.setFileFilter(new FileFilter() {
+
+                        public String getDescription() {
+                            return "JPG Images (*.jpg)";
+                        }
+
+                        public boolean accept(File f) {
+                            if (f.isDirectory()) {
+                                return true;
+                            } else {
+                                String filename = f.getName().toLowerCase();
+                                return filename.endsWith(".jpg") || filename.endsWith(".jpeg") ;
+                            }
+                        }
+                    });
+
+
+                    int option = fileChooser.showSaveDialog(Screenshot.this);
+                    if(option == JFileChooser.APPROVE_OPTION){
+                        File file = fileChooser.getSelectedFile();
+                    }ImageIO.write(img, "jpg", new File(String.valueOf(fileChooser.getSelectedFile())+".jpg"));
+
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
