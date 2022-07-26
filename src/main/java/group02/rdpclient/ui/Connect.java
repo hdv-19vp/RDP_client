@@ -27,12 +27,10 @@ Connect extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Connect() {
-        if (Client.socket != null) {
-            try {
-                Client.socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            Client.closeConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         initComponents();
         jButton_Login.requestFocus();
@@ -96,7 +94,8 @@ Connect extends javax.swing.JFrame {
                     Validpass.setForeground(Color.WHITE);
                 }
                 if(!jTextField1.getText().equals("IPadress") && !jTextField2.getText().equals("Port")) {
-                    boolean result = Client.connect(jTextField1.getText());
+                    Client.setServerIp(jTextField1.getText());
+                    boolean result = Client.connect();
                     if (result == true) {
                         JOptionPane optionPane = new JOptionPane("Connect successful",JOptionPane.WARNING_MESSAGE);
                         JDialog dialog = optionPane.createDialog("Connect status");

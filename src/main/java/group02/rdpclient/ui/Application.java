@@ -22,7 +22,9 @@ public class Application extends javax.swing.JFrame {
      */
     public Application() {
         initComponents();
-        
+        jTable1.getColumnModel().getColumn(2).setHeaderValue("Status");
+        jTable1.getTableHeader().repaint();
+
         jButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,7 +60,7 @@ public class Application extends javax.swing.JFrame {
                 ArrayList<String> appList = new ArrayList<>();
                 Client.getApp(appList);
                 for (int i = 3; i < appList.size(); i++){
-                    String datas[] = appList.get(i).split("\s+");
+                    String datas[] = appList.get(i).trim().split("\s+");
                     String status = "Running";
                     Object[] data = {datas[0],datas[1],status};
 
@@ -75,6 +77,9 @@ public class Application extends javax.swing.JFrame {
                 tblModel.setRowCount(0);
             }
         });
+
+        jTextField1.setText(Client.getServerIp());
+        jTextField1.setEditable(false);
 
 
     }

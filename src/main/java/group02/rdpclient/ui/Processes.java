@@ -22,7 +22,9 @@ public class Processes extends javax.swing.JFrame {
      */
     public Processes() {
         initComponents();
-        
+        jTable1.getColumnModel().getColumn(2).setHeaderValue("Status");
+        jTable1.getTableHeader().repaint();
+
         jButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,13 +57,17 @@ public class Processes extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
                 tblModel.setRowCount(0);
+                Object[] data;
                 ArrayList<String> processList = new ArrayList<>();
                 Client.getProcess(processList);
                 for (int i = 3; i < processList.size(); i++){
-                    String datas[] = processList.get(i).split("\s+");
+                    String datas[] = processList.get(i).trim().split("\s+");
                     String status = "Running";
-                    Object[] data = {datas[0],datas[1],status};
-
+                    if(datas[1].matches("-?\\d+(\\.\\d+)?")) {
+                        data = new Object[]{datas[1],datas[0],status};
+                    }
+                    else
+                        data = new Object[]{datas[2],datas[0]+datas[1],status};
                     tblModel.addRow(data);
                 }
             }
@@ -76,8 +82,8 @@ public class Processes extends javax.swing.JFrame {
             }
         });
 
-
-
+        jTextField1.setText(Client.getServerIp());
+        jTextField1.setEditable(false);
     }
 
     /**

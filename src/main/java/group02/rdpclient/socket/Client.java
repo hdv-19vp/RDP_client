@@ -10,13 +10,27 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class Client {
-    //public final static String SERVER_IP = "127.0.0.1";
+    public static String SERVER_IP ;
     public final static int SERVER_PORT = 7;
     public static Socket socket = null;
     public static DataInputStream dis = null;
     public static DataOutputStream dos = null;
 
-    public static boolean connect(String SERVER_IP) {
+    public static String getServerIp() {
+        return SERVER_IP;
+    }
+
+    public static void setServerIp(String serverIp) {
+        SERVER_IP = serverIp;
+    }
+
+    public static void closeConnection() throws IOException {
+        if(socket!= null)
+            socket.close();
+    }
+
+
+    public static boolean connect() {
         try {
             socket = new Socket(SERVER_IP, SERVER_PORT); // Connect to server
             dis = new DataInputStream(socket.getInputStream());
