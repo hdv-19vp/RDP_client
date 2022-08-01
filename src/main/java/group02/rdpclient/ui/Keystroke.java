@@ -21,7 +21,8 @@ public class Keystroke extends javax.swing.JFrame {
      */
     public Keystroke() {
         initComponents();
-
+        jTextField2.setText("7");
+        jTextField2.setEditable(false);
 
 
         jButton1.addActionListener(new ActionListener() {
@@ -57,7 +58,6 @@ public class Keystroke extends javax.swing.JFrame {
                 jTextArea1.setText("");
             }
         });
-
 
 
         jButton5.addActionListener(new ActionListener() {

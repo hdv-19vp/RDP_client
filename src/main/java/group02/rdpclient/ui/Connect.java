@@ -55,24 +55,26 @@ Connect extends javax.swing.JFrame {
                 }
             }
         });
+        jTextField2.setEditable(false);
         
-        jTextField2.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (jTextField2.getText().length()!=0) {
-                    jTextField2.setText("");
-                    jTextField2.setForeground(Color.GRAY);
-                }
-            }
+//        jTextField2.addFocusListener(new FocusListener() {
+//            @Override
+//            public void focusGained(FocusEvent e) {
+//                if (jTextField2.getText().length()!=0) {
+//                    jTextField2.setText("");
+//                    jTextField2.setForeground(Color.GRAY);
+//                }
+//            }
 
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (jTextField2.getText().isEmpty()) {
-                    jTextField2.setForeground(Color.GRAY);
-                    jTextField2.setText("Port");
-                }
-            }
-        });
+//            @Override
+//            public void focusLost(FocusEvent e) {
+//                if (jTextField2.getText().isEmpty()) {
+//                    jTextField2.setForeground(Color.GRAY);
+//                    jTextField2.setText("7");
+//
+//                }
+//            }
+  //      });
         
         Validuser.setForeground(Color.white);
         Validpass.setForeground(Color.white);
@@ -95,6 +97,7 @@ Connect extends javax.swing.JFrame {
                 }
                 if(!jTextField1.getText().equals("IPadress") && !jTextField2.getText().equals("Port")) {
                     Client.setServerIp(jTextField1.getText());
+
                     boolean result = Client.connect();
                     if (result == true) {
                         JOptionPane optionPane = new JOptionPane("Connect successful",JOptionPane.WARNING_MESSAGE);
@@ -180,7 +183,7 @@ Connect extends javax.swing.JFrame {
 
         jTextField1.setText("IPadress");
 
-        jTextField2.setText("Port");
+        jTextField2.setText("7");
 
         javax.swing.GroupLayout FormLayout = new javax.swing.GroupLayout(Form);
         Form.setLayout(FormLayout);

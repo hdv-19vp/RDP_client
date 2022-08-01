@@ -55,7 +55,6 @@ public class Screenshot extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-
                     JFileChooser fileChooser = new JFileChooser();
                     fileChooser.setFileFilter(new FileFilter() {
 

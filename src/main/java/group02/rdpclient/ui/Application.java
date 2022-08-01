@@ -6,6 +6,7 @@ package group02.rdpclient.ui;
 
 import group02.rdpclient.socket.Client;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,8 @@ public class Application extends javax.swing.JFrame {
      */
     public Application() {
         initComponents();
+        jTextField2.setText("7");
+        jTextField2.setEditable(false);
         jTable1.getColumnModel().getColumn(2).setHeaderValue("Status");
         jTable1.getTableHeader().repaint();
 
