@@ -22,6 +22,8 @@ public class Processes extends javax.swing.JFrame {
      */
     public Processes() {
         initComponents();
+        jTextField2.setText("7");
+        jTextField2.setEditable(false);
         jTable1.getColumnModel().getColumn(2).setHeaderValue("Status");
         jTable1.getTableHeader().repaint();
 
